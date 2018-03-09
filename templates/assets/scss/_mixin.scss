@@ -1,0 +1,23 @@
+@mixin span {
+
+    color: $lime;
+    position: absolute;
+    padding: .5rem .9rem;
+    transform: translate(-90%,-70%);
+    border-radius: 90% 50%;
+    border-top: 2px solid $orange;
+    border-left: 1px solid $orange;
+    transition: $t-out;
+    
+}
+
+@mixin span-hover {
+
+background-color: $red-shaft;
+color: $mint-cream;
+border-top: 2px solid $red;
+border-left: 1px solid $red;
+
+border-bottom: 1px solid $orange;
+border-right: 2px solid $orange;
+}

@@ -1,0 +1,119 @@
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@mixin xl {
+  @media (max-width: 1281px) {
+    @content; 
+  }
+}
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@mixin lg {
+  @media (max-width: 1024px) {
+    @content; 
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@mixin md {
+  @media (max-width: 768px) {
+    @content;  
+  }
+}
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@mixin md-land {
+  @media (max-width: 768px)  and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@mixin sm {
+  @media (max-width: 481px) {
+    @content;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@mixin xs {
+  @media (max-width: 320px) {
+    @content;
+  }
+}
+
+
+// https://gist.github.com/gokulkrishh/242e68d1ee94ad05f488
+// /* 
+//   ##Device = Desktops
+//   ##Screen = 1281px to higher resolution desktops
+// */
+// @mixin xl {
+//   @media (min-width: 1281px) {
+//     @content; 
+//   }
+// }
+// /* 
+//   ##Device = Laptops, Desktops
+//   ##Screen = B/w 1025px to 1280px
+// */
+
+// @mixin lg {
+//   @media (min-width: 1025px) and (max-width: 1280px) {
+//     @content; 
+//   }
+// }
+
+// /* 
+//   ##Device = Tablets, Ipads (portrait)
+//   ##Screen = B/w 768px to 1024px
+// */
+// @mixin md {
+//   @media (min-width: 768px) and (max-width: 1024px) {
+//     @content;  
+//   }
+// }
+// /* 
+//   ##Device = Tablets, Ipads (landscape)
+//   ##Screen = B/w 768px to 1024px
+// */
+// @mixin md {
+//   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+//     @content;
+//   }
+// }
+
+// /* 
+//   ##Device = Low Resolution Tablets, Mobiles (Landscape)
+//   ##Screen = B/w 481px to 767px
+// */
+// @mixin sm {
+//   @media (min-width: 481px) and (max-width: 767px) {
+//     @content;
+//   }
+// }
+
+// /* 
+//   ##Device = Most of the Smartphones Mobiles (Portrait)
+//   ##Screen = B/w 320px to 479px
+// */
+// @mixin xs {
+//   @media (min-width: 320px) and (max-width: 480px) {
+//     @content;
+//   }
+// }

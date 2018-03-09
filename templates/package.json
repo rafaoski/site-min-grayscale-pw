@@ -1,0 +1,25 @@
+{
+  "name": "processwire-starter",
+  "version": "1.0.0",
+  "description": "Simple Starter For Processwire",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "processwire",
+    "browser-sync",
+    "starter"
+  ],
+  "author": "Rafał Olszewicz",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "latest"
+  }
+}

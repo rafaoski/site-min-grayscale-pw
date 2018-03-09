@@ -1,0 +1,713 @@
+/******* BASIC ********/
+body {
+    background-color: $mine-shaft;
+}
+
+h1, h2 {
+    color: $aqua-haze;
+    font-family: 'Limelight';
+    padding: 7px;
+    font-size: 33px;
+}
+
+h3 {
+    color: $alto;
+    font-family: 'Righteous', cursive;
+    padding: 5px;
+    font-size: 25px;
+    line-height: 1.6;
+}
+
+h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    color: $granny-smith;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+p {
+    // font-size: 16px;
+	color: $power-ash;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    padding: 10px;
+}
+
+b {
+    color: $power-ash;
+}
+
+strong {
+    font-weight: bold;
+    color: $mint-cream;
+  }
+
+label {
+    color: $power-ash;
+}
+
+a {
+    color: $bitter-leamon;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 1.6;
+    transition: $t-out;
+        &:hover {
+            color: $orange;
+        }
+}
+
+/******* IMAGES ********/
+img {
+    max-width: 100%;
+    height: auto;
+    transition: $t-out;
+
+    filter: grayscale(100%);
+
+    &:hover {
+        opacity: 0.4;
+        transform: scale(0.98);
+        filter: grayscale(0%);
+    }
+    // MAXIMUM 768px
+    @include md {
+        filter: grayscale(30%);
+    }
+}
+
+/******* BLOCKQUOTE ********/
+blockquote {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 21px;
+    font-style: italic;
+    // width: 450px;
+    margin: 10px 5px;
+    padding: 2px 24px;
+    line-height: 1.45;
+    position: relative;
+    color: $alto;
+
+// MAXIMUM 768px
+    @include md {
+        font-size: 18px;
+        padding: 9px;
+    }
+}
+
+blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -25px;
+    color: $limeade;
+
+    // MAXIMUM 768px
+    @include md {
+        font-size: 60px;
+        left: -20px;
+        top: -10px;
+    }
+}
+
+/******* LIST UL ********/
+ul {
+  margin: 5px;
+  li {
+    color: $mint-cream;
+    font-family: 'Montserrat';
+    counter-increment: li;
+    line-height: 1.6;
+    padding: 5px;
+    &:before {
+    content: "•"; color: $orange;
+    display: inline-block; width: 18px;
+    margin-left: 18px
+  }
+    }
+}
+
+/******* LIST OL ********/
+ol {
+  list-style: none;
+  counter-reset: my-counter;
+  color: $mint-cream;
+  li {
+    counter-increment: my-counter;
+    margin: 4px;
+    padding-left: 16px;
+
+      &:before {
+          content: counter(my-counter);
+          background: $woodsmoke;
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          display: inline-block;
+          line-height: 35px;
+          color: $alto;
+          text-align: center;
+          margin-right: 8px;
+      }
+  }
+}
+
+/************ TABLE *************/
+table {
+  border-collapse: separate;
+  background:$cod-gray;
+  margin:50px auto;
+
+thead th {
+  font-family: 'Righteous';
+  color: $mint-cream;
+  text-align:left;
+  padding:20px;
+  // border-top:1px solid $mine-shaft;
+}
+tbody tr td {
+  font-family: 'Montserrat', sans-serif;
+  font-weight:400;
+  color: $mint-cream;
+  font-size:13px;
+  padding:20px 20px 20px 20px;
+  // border-bottom:1px solid $aqua-haze;
+
+}
+  tbody tr:nth-child(2n) {
+    background:$mine-shaft;
+  }
+  tbody:hover > tr:hover td {
+    color: $orange
+  }
+}
+
+/************ ALIGN ITEMS *************/
+ .align_left {
+	/* for images placed in rich text editor */
+	float: left;
+	margin: 0 1em 0.5em 0;
+	position: relative;
+	top: 0.5em;
+	max-width: 50%;
+}
+
+.align_right {
+	/* for images placed in rich text editor */
+	float: right;
+	margin: 0 0 0.5em 1em;
+	max-width: 50%;
+}
+
+.align_center {
+	/* for images placed in rich text editor */
+	display: block;
+	margin: 1em auto;
+	position: relative;
+	top: 0.5em;
+}
+
+/************ FLEX CENTER CLASS *************/
+.flex-center {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+
+/************ FLEX CATEGORY CLASS <ul></li>{category}</li></ul> *************/
+.flex-cat {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    li {
+        &:before {
+            content: none;
+          }
+    }
+
+// MAXIMUM 768px
+    @include sm {
+        flex-wrap: wrap;
+    }
+}
+
+/************ AREAS PADDING *************/
+.wrapper {
+    .header,.main,.sidebar {
+        padding: 16px;
+    }
+}
+
+/************ HEADER *************/
+header {
+    display: flex;
+    margin-bottom: -18px;
+    a {
+        color: $mint-cream;
+    }
+// HEADER MAXIMUM 768px ***/
+@include md {
+    // FLEX CENTER
+        justify-content: center;
+    // FLEX WRAP
+        flex-wrap: wrap;
+
+    background-color: $transparent;
+    .logo {
+        // margin-left: 20%;
+        z-index: 1000;
+    }
+    .nav {
+        // overflow: hidden;
+        top: 19px;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+    }
+}
+
+    // TOP NAV ******/
+    nav {
+        #menu-toggle {
+            display: none;
+        }
+        .toggle-label {
+            display: none;
+        }
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                list-style: none;
+                padding: 7px;
+                &:before {
+                    content: none;
+                }
+                a {
+                    font-family: 'Montserrat', sans-serif;
+                }
+            }
+        }
+        // TOP NAV MAXIMUM 768px MENU TOGGLE ********/
+        @include md {
+
+            .toggle-label {
+                display: block;
+                padding: 9px;
+                margin: 9px;
+                text-align: center;
+                width: 50px;
+                background-color: $cod-gray;
+            }
+            #menu {
+                display: flex;
+                margin: 0;
+                flex-direction: column;
+                background-color: $cape-cod;
+                overflow: hidden;
+                max-height: 0%;
+                transition: $t-out;
+            }
+
+            #menu-toggle:checked + #menu {
+                max-height: 500px;
+            }
+        }
+    }
+}
+
+/************ BREADCRUMBS *************/
+.breadcrumbs {
+    color: $alto;
+    padding: 7px;
+    margin: -18px 18px 18px;
+}
+
+/************ PAGINATION *************/
+.MarkupPagerNav {
+    display: flex;
+    flex-direction: row;
+    li:before {
+        display: none;
+    }
+    .MarkupPagerNavOn a {
+        color: $orange;
+    }
+
+
+}
+
+/************ SEARCH FORM *************/
+.search-form {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+
+    input {
+        background: $cod-gray;
+        background: linear-gradient($cape-cod, $woodsmoke);
+        border: 1px solid $tundora;
+        border-radius: 5px 0 0 5px;
+        box-shadow: 0 2px 0 $woodsmoke;
+        color: $granny-smith;
+        font-weight: bold;
+        height: 40px;
+        padding: 0 10px;
+        width: 200px;
+        @include md {
+            width: 100%;
+        }
+
+    }
+
+    button {
+        background: linear-gradient($mine-shaft, $woodsmoke);
+        box-sizing: content-box;
+        border: 1px solid $mine-shaft;
+        border-radius: 0 5px 5px 0;
+        box-shadow: 0 2px 0 $cod-gray;
+        color: $mint-cream;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        text-shadow: 0 -1px 0 $cod-gray;
+        width: 80px;
+        transition: $t-out;
+    }
+
+}
+
+/*
+    **********************  BLOG CONTENT ***************
+*/
+.blog-content {
+
+    .meta {
+        padding: 10px;
+    }
+
+.auth-content {
+//  position: absolute;   
+//  display: flex;
+
+    .aut-thumb {
+        position: absolute;
+        display: flex;
+        margin: -100px 20px 0;
+        transition: all .2s ease-in-out;
+        max-width: 500px;
+        padding: 5px;
+        background-color: rgba($black, 0.7);
+        border: 1px solid $transparent;
+
+        img {
+            width: 35px;
+            height: 35px;
+            border: 2px solid rgba($mint-cream, 0.3);
+            border-radius: 50%;
+            filter: grayscale(0%);
+        }
+        h3 {
+            color: $mint-cream;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+
+        }
+
+       transition: $t-out;
+
+     &:hover {
+        border: 1px solid $mint-cream;
+        img {
+            border: 2px solid $black;
+            border-radius: 50%;
+            filter: grayscale(50%);
+        }
+
+     }
+
+  }
+
+}
+    // Count Comments
+    .txt-comm {
+
+        .com-count {
+            @include span;
+            border-radius: 0;
+            margin-left: 55px;
+           &:hover {
+            @include span-hover;
+           }
+        }
+
+        @include md {
+        margin-left: 120px; 
+          .com-count {
+            margin-left: 50px;
+            }
+         }
+
+         @include sm {
+            margin-left: 20px; 
+              .com-count {
+                margin-left: 50px;
+                }
+             }
+    }
+
+}
+// COMMENT FORM
+.CommentForm {
+    input {
+        padding: 5px;
+    }
+    button {
+        background: $transparent;
+        color: $aqua-haze;
+        border: 1px solid $silver-chalice;
+        padding: 10px;
+        transition: $t-out;
+        &:hover {
+            background: $orange;
+            color: $woodsmoke;
+            border: 1px solid $transparent;
+        }
+    }
+}
+
+
+/*
+    ********************** HEADING BLOG POST ***************
+*/
+.blog-post {
+
+    .meta {
+        padding: 10px;
+    }
+
+    h3 {
+        font-family: Limelight;
+    }
+
+}
+
+.blog-sidebar {
+    .auth {
+        img {
+        width: 350px;
+        height: 350px;
+        border: 2px solid rgba($mint-cream, 0.3);
+        border-radius: 50%;
+        filter: grayscale(0%);
+      }
+    }
+
+}
+
+/*
+    ********** PORTFOLIO CONTENT AddToAny icons ***************
+*/
+.portfolio {
+    .a2a_kit {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        a {
+            margin: 2px;
+        }
+    }
+}
+
+/*
+    ********************** HERO IMAGE ***************
+*/
+.hero {
+    padding-bottom: 7px;
+    .hero-content {
+        min-height: 450px;
+        padding: 7px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        // background-size: contain;
+        background-position: center;
+        background-attachment: fixed;
+        box-shadow: inset 0 0 0 2000px $hero-shadow;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h1 {
+            font-size: 45px;
+            // color: $red;
+            text-align: center;
+            &:before {
+                    display: block;
+                    content: "\201C";
+                    font-size: 90px;
+                    color: $orange;
+                    float: left;
+                    margin-top: -18px;
+            // MAXIMUM 768px MENU TOGGLE
+                @include md {
+                    font-size: 65px;
+                    margin-top: -16px;
+                }
+            }
+    // MAXIMUM 768px MENU TOGGLE
+        @include md {
+            font-size: 25px;
+            margin-top: 16px;
+        }
+    }
+        // HERO TAGS
+        .tags-content {
+            .item a {
+                background-color: $transparent;
+                color: $silver-chalice;
+                border: 1px solid darken($orange, 20%);
+                font-weight: normal;
+                transition: $t-out;
+                &:hover {
+                    border: 1px solid $orange;
+                    color: $orange;
+                    border-top: 1px solid $transparent;
+                    border-left: 1px solid $transparent;
+                }
+                span {
+                    // color: $red;
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+    ********************** FOOTER ***************
+*/
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 7px;
+
+    img {
+        margin: 3px;
+        filter: invert(.8);
+        padding: 3px;
+        &:hover {
+            filter: invert(.1);
+            }
+    }
+// MAXIMUM 768px
+    @include md {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 60px;
+    }
+}
+
+/*
+    ********************** COOKIE BANNER ***************
+*/
+.cookiebanner {
+
+    padding: 10px 16px !important;
+
+@include sm {
+    min-height: 41px !important;
+    }
+}    
+
+
+/*
+    ********************** CATEGORY PAGE ***************
+*/
+.categories-content {
+
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: center;
+    justify-content: space-around;
+    margin-top: 7px;
+
+    .category {
+            // flex: 1 auto;
+            padding: 16px;
+            text-align: center;
+
+            span {
+                @include span;
+            }
+
+        a {
+            display: block;
+            background-color: $transparent;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 3px;
+            color: $orange;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            &:hover {
+                // background-color: $red;
+                background-color: rgba(22, 25, 23, 0.41);
+                color: $mint-cream;
+                span {
+                    @include span-hover;
+                }
+
+                }
+        }
+
+    }
+
+}
+
+/*************** TAGS PAGE *****************/
+.tags-content {
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 7px;
+
+    .item {
+            // flex: 1 auto;
+            padding: 16px;
+            text-align: center;
+
+            span {
+                @include span;
+            }
+
+        a {
+            display: block;
+            background-color: $orange;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 3px;
+            color: $cod-gray;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            &:hover {
+                span {
+                    @include span-hover;
+                }
+                    background-color: $red-shaft;
+                    color: $mint-cream;
+                }
+        }
+    }
+
+}
+
+/*************** DEBUG REGIONS *****************/
+.debug-regions {
+    color: $mint-cream;
+}
