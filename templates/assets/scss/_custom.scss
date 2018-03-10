@@ -281,12 +281,20 @@ header {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+
+            .active {
+                a {
+                    color: $orange;
+                }
+            }
+
             li {
                 list-style: none;
                 padding: 7px;
                 &:before {
                     content: none;
                 }
+
                 a {
                     font-family: 'Montserrat', sans-serif; 
                 }
@@ -328,11 +336,17 @@ header {
 .languages {
     display: flex;
     flex-wrap: wrap;
+    .current {
+        background-color: $black;
+            a {
+                color: $orange;
+            }
+        }
     li {
-        padding: 10px;
+        padding: 8px;
         margin: 2px;
         border: 2px solid $scorpion;
-        border-radius: 50%;
+        border-radius: 5%;
         transition: $t-out;
         &:before {
         display: none;
@@ -343,14 +357,6 @@ header {
             a {
                 color: $orange;
             }
-        }
-    }
-
-    @include md {
-        li {
-           a {
-               color: $red;
-           }
         }
     }
 }

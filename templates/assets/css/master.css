@@ -798,6 +798,11 @@ header nav ul
     display: flex; flex-wrap: wrap; align-items: center;
 }
 
+header nav ul .active a
+{
+    color: #ff9001;
+}
+
 header nav ul li
 {padding: 7px; 
 
@@ -840,9 +845,19 @@ header nav ul li a
     display: flex; flex-wrap: wrap;
 }
 
+.languages .current
+{
+    background-color: #000;
+}
+
+.languages .current a
+{
+    color: #ff9001;
+}
+
 .languages li
 {margin: 2px; 
-    padding: 10px; transition: all .2s ease-in-out; border: 2px solid #595959; border-radius: 50%;
+    padding: 8px; transition: all .2s ease-in-out; border: 2px solid #595959; border-radius: 5%;
 }
 
 .languages li:before
@@ -858,14 +873,6 @@ header nav ul li a
 .languages li:hover a
 {
     color: #ff9001;
-}
-
-@media (max-width: 768px)
-{
-    .languages li a
-    {
-        color: #ed3104;
-    }
 }
 
 /************ BREADCRUMBS *************/
