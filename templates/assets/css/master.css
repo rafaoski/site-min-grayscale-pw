@@ -214,12 +214,10 @@ table
     filter: alpha(opacity=0); filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
 
-/* 
-    ********************** WRAPPER PAGE ***************
-*/
+/*  WRAPPER PAGE *************** */
 .wrapper
 {
-    display: grid; width: 100%; height: 100vh; grid-template-columns: 1fr 1fr 1fr; /* OR SIMPLE grid-template-columns: repeat(3, 1fr); => https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns */ grid-template-rows: auto; /* https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows */ grid-gap: 10px 20px; /* OR SIMPLE grid-gap: 1em; => https://developer.mozilla.org/en-US/docs/Web/CSS/grid-gap */ grid-template-areas: 'header header header'    'hero hero hero'    'main main sidebar'    'footer footer footer';
+    display: grid; width: 100%; height: 100vh; grid-template-columns: 1fr 1fr 1fr; /* OR SIMPLE grid-template-columns: repeat(3, 1fr); => https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns */ grid-template-rows: auto; /* https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows */ grid-gap: 10px 20px; /* OR SIMPLE grid-gap: 1em; => https://developer.mozilla.org/en-US/docs/Web/CSS/grid-gap */ grid-template-areas: 'header header header' 'hero hero hero' 'main main sidebar' 'footer footer footer';
 }
 
 .wrapper .header
@@ -251,13 +249,11 @@ table
 {
     .wrapper
     {
-        grid-template-areas: 'header header header'        'hero hero hero'        'main main main'        'sidebar sidebar sidebar'        'footer footer footer';
+        grid-template-areas: 'header header header' 'hero hero hero' 'main main main' 'sidebar sidebar sidebar' 'footer footer footer';
     }
 }
 
-/* 
-    ********************** GRID 2 COLUMNS ***************
-*/
+/*  GRID 2 COLUMNS *************** */
 .grid-2-col
 {
     display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: dense; grid-gap: 16px;
@@ -284,9 +280,7 @@ table
     }
 }
 
-/* 
-    ********************** GRID 3 COLUMNS ***************
-*/
+/*  GRID 3 COLUMNS *************** */
 .grid-3-col
 {
     display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 16px;
@@ -300,9 +294,7 @@ table
     }
 }
 
-/* 
-    ********************** GRID 4 COLUMNS ***************
-*/
+/*  GRID 4 COLUMNS *************** */
 .grid-4-col
 {
     display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 16px;
@@ -324,9 +316,7 @@ table
     }
 }
 
-/* 
-    ********************** CONTACT FORM ***************
-*/
+/*  CONTACT FORM *************** */
 .c-form
 {margin: 7px; padding: 40px 16px; border: 1px solid #3f4542; border-radius: 5px; 
     background: #1c1d1e;
@@ -334,7 +324,7 @@ table
 
 .c-form .contact-grid
 {
-    display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px 20px; /* OR SIMPLE grid-gap: 1em; => https://developer.mozilla.org/en-US/docs/Web/CSS/grid-gap */ grid-template-areas: 'name email phone'    'message message message';
+    display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px 20px; /* OR SIMPLE grid-gap: 1em; => https://developer.mozilla.org/en-US/docs/Web/CSS/grid-gap */ grid-template-areas: 'name email phone' 'message message message';
 }
 
 .c-form .contact-grid label
@@ -377,14 +367,11 @@ table
     .c-form .contact-grid
     {width: 99%; margin: 0; padding: 0; 
 
-        grid-template-columns: 1fr; grid-template-areas: 'name'        'email'        'phone'        'message';
+        grid-template-columns: 1fr; grid-template-areas: 'name' 'email' 'phone' 'message';
     }
 }
 
-/* 
-  ********************** TILED GALLERY FRONT PAGE ***************
-  *   https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout
-*/
+/*  TILED GALLERY FRONT PAGE *************** https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout */
 .tiled-gallery
 {
     display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px;
@@ -404,7 +391,7 @@ table
 .tiled-gallery .middle h3
 {font-size: 22px; 
 
-    color: #ff9001;
+    color: #ff9001; background: rgba(0, 0, 0, .7);
 }
 
 .tiled-gallery a:hover img
