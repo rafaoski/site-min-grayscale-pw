@@ -10,15 +10,12 @@ $c_opt = [
 // GET SOME FIELDS like healine or title
     'head_tit' => $page->get("headline|title"),
 // GET SOME IMPORTANT OPTIONS FROM PAGE options
-    'page_opt' => $pages->get('/options/'),
-
+    'page_opt' => $pages->get('/options/')
 ];
 
 // TRANSLATED STRINGS => https://processwire.com/api/multi-language-support/code-i18n/
 // USAGE => echo $t_str['name'];
 $t_str = [
-// LANG PREFIX
-    'lang' => __('en'),
 // BASIC PAGINATION
     'p_prev' => __('&laquo; Previous'),
     'p_next' => __('Next &raquo;'),

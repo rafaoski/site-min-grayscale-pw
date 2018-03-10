@@ -243,6 +243,7 @@ tbody tr td {
 /************ HEADER *************/
 header {
     display: flex;
+    align-items: center;
     margin-bottom: -18px;
     a {
         color: $mint-cream;
@@ -279,6 +280,7 @@ header {
         ul {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
             li {
                 list-style: none;
                 padding: 7px;
@@ -286,7 +288,7 @@ header {
                     content: none;
                 }
                 a {
-                    font-family: 'Montserrat', sans-serif;
+                    font-family: 'Montserrat', sans-serif; 
                 }
             }
         }
@@ -305,7 +307,8 @@ header {
                 display: flex;
                 margin: 0;
                 flex-direction: column;
-                background-color: $cape-cod;
+                // background-color: $cape-cod;
+                background-color: rgba($black, 0.9);
                 overflow: hidden;
                 max-height: 0%;
                 transition: $t-out;
@@ -314,9 +317,44 @@ header {
             #menu-toggle:checked + #menu {
                 max-height: 500px;
             }
+            ul {
+                align-items: baseline;
+            }
         }
     }
 }
+
+/************ LANGUAGE MENU *************/
+.languages {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        padding: 10px;
+        margin: 2px;
+        border: 2px solid $scorpion;
+        border-radius: 50%;
+        transition: $t-out;
+        &:before {
+        display: none;
+        }
+        &:hover {
+            border: 2px solid $woodsmoke;
+            background-color: $black;
+            a {
+                color: $orange;
+            }
+        }
+    }
+
+    @include md {
+        li {
+           a {
+               color: $red;
+           }
+        }
+    }
+}
+
 
 /************ BREADCRUMBS *************/
 .breadcrumbs {

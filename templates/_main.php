@@ -1,6 +1,10 @@
-<?php namespace ProcessWire;?>
+<?php namespace ProcessWire;
+// Most options are in the file /inc/_options.php
+// DEFAULT LANG PREFIX
+$def_lang = 'en';
+?>
 <!DOCTYPE html>
-<html lang="<?=$t_str['lang'];?>">
+<html lang="<?=langPrefix($c_opt['home'],$def_lang);?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +21,9 @@
     </style>
     
     <link rel="stylesheet" href="<?php echo $c_opt['t_url']?>assets/css/master.min.css">
+
+    <?=hrefLang($c_opt['home'],$def_lang);?>
+
 </head>
 
 <body id='top'>
@@ -46,13 +53,26 @@
         <input type="checkbox" id="menu-toggle"/>
 
             <ul id='menu' class='topnav'>
+
+            <?php 
+            // LANGUAGES MENU
+                if(count(page()->getLanguages()) != 0 ): ?>
+            
+                    <!-- language switcher / navigation -->
+                    <ul id='lang-menu' class='languages' role='navigation'>
+            
+                        <?= menuLang($c_opt['home'],$def_lang);?>
+            
+                    </ul>
+            <?php endif; ?>
+
                 <?=topNav($c_opt['home'])?>
+
             </ul>
 
         </nav><!-- /#top-nav-->
 
     </header>
-
 
     <div id="hero" class='hero'>
 

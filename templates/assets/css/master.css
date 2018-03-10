@@ -758,7 +758,7 @@ table tbody:hover > tr:hover td
 /************ HEADER *************/
 header
 {
-    display: flex; margin-bottom: -18px;
+    display: flex; margin-bottom: -18px; align-items: center;
 }
 
 header a
@@ -795,7 +795,7 @@ header nav .toggle-label
 
 header nav ul
 {
-    display: flex; flex-wrap: wrap;
+    display: flex; flex-wrap: wrap; align-items: center;
 }
 
 header nav ul li
@@ -822,11 +822,49 @@ header nav ul li a
     }
     header nav #menu
     {
-        display: flex; overflow: hidden; flex-direction: column; max-height: 0; margin: 0; transition: all .2s ease-in-out; background-color: #3f4542;
+        display: flex; overflow: hidden; flex-direction: column; max-height: 0; margin: 0; transition: all .2s ease-in-out; background-color: rgba(0, 0, 0, .9);
     }
     header nav #menu-toggle:checked + #menu
     {
         max-height: 500px;
+    }
+    header nav ul
+    {
+        align-items: baseline;
+    }
+}
+
+/************ LANGUAGE MENU *************/
+.languages
+{
+    display: flex; flex-wrap: wrap;
+}
+
+.languages li
+{margin: 2px; 
+    padding: 10px; transition: all .2s ease-in-out; border: 2px solid #595959; border-radius: 50%;
+}
+
+.languages li:before
+{
+    display: none;
+}
+
+.languages li:hover
+{
+    border: 2px solid #171819; background-color: #000;
+}
+
+.languages li:hover a
+{
+    color: #ff9001;
+}
+
+@media (max-width: 768px)
+{
+    .languages li a
+    {
+        color: #ed3104;
     }
 }
 

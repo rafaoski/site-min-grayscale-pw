@@ -6,7 +6,7 @@ var csscomb = require('gulp-csscomb');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 
-var URL = 'http://proc-gray.loc/';
+var URL = 'http://grayscale-pw.dev/';
 
 var paths = {
   source: './assets/scss/**/*.scss',

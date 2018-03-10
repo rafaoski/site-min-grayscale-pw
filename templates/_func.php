@@ -12,9 +12,104 @@ function topNav($root) {
     $out = '';
         foreach($children as $child) {
             $child->id == wire('page')->id ? $class = 'active' : $class = 'no-active';
-            $out .= "<li class='{$class}'><a href='{$child->url}'>{$child->title}</a></li>";
+            $out .= "<li class='{$class}'><a class='nav-item' href='{$child->url}'>{$child->title}</a></li>";
         }
     return $out;
+}
+
+/**
+ * @param Page $home
+ * Get home page from _options.php => $c_opt['home']
+ * @param string $lang_pref 
+ *  Default language prefix => 'en'
+ */
+function menuLang($home,$lang_pref) {
+
+    if(count(page()->getLanguages()) == 0 ) return '';
+
+        $out = '';
+
+        foreach(languages() as $language) {
+
+            if(!page()->viewable($language)) continue; // is page viewable in this language?
+            
+			if($language->id == user()->language->id) {
+				$out .= "<li class='current'>";
+			} else {
+				$out .= "<li>";
+            }
+            
+			$url = page()->localUrl($language); 
+            $hreflang = $home->getLanguageValue($language, 'name'); 
+
+            $hreflang == 'home' ? $hreflang = $lang_pref : '';
+            // $out .= "<a hreflang='$hreflang' href='$url'>$language->title</a></li>";
+            $out .= "<a hreflang='$hreflang' href='$url'>" . strtoupper($hreflang) . "</a></li>";
+            
+        }
+    // RETURN MENU 
+        return $out;
+    }
+
+/**
+ * @param Page $home
+ * Get home page from _options.php => $c_opt['home']
+ * @param string $lang_pref
+ * Default language prefix => 'en'
+ */
+    function hrefLang($home,$lang_pref) {
+
+        if(count(page()->getLanguages()) == 0 ) return '';
+    
+        $out = '';
+    
+        // handle output of 'hreflang' link tags for multi-language
+        // this is good to do for SEO in helping search engines understand
+        // what languages your site is presented in	
+        foreach(languages() as $language) {
+            // if this page is not viewable in the language, skip it
+            if(!page()->viewable($language)) continue;
+            // get the http URL for this page in the given language
+            $url = page()->localHttpUrl($language); 
+            // hreflang code for language uses language name from homepage
+            $hreflang = $home->getLanguageValue($language, 'name');
+            $hreflang == 'home' ? $hreflang = $lang_pref : ''; 
+            // output the <link> tag: note that this assumes your language names are the same as required by hreflang. 
+            $out .= "\n\t<link rel='alternate' hreflang='$hreflang' href='$url' />";
+        }
+    
+        return $out . "\n";
+        
+    }
+
+/**
+ * @param Page $home
+ * Get home page from _options.php => $c_opt['home']
+ * @param string $lang_pref
+ * Default language prefix => 'en'
+ */
+function langPrefix($home,$lang_pref) {
+
+    if(count(page()->getLanguages()) == 0 ) return $lang_pref;
+
+    // handle output of 'hreflang' link tags for multi-language
+    // this is good to do for SEO in helping search engines understand
+    // what languages your site is presented in	
+    foreach(languages() as $language) {
+        // if this page is not viewable in the language, skip it
+        if(!page()->viewable($language)) continue;
+        // get the http URL for this page in the given language
+        $url = page()->localHttpUrl($language); 
+        // hreflang code for language uses language name from homepage
+        $hreflang = $home->getLanguageValue($language, 'name');
+
+        $hreflang == 'home' ? $hreflang = $lang_pref : ''; 
+
+        if(page()->httpUrl == $url) {
+            return $hreflang;
+        }
+    }
+ 
 }
 
 /**
