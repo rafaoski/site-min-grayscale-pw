@@ -106,9 +106,9 @@ $def_lang = 'en';
 
     <form class='search-form' action='<?php echo $pages->get('template=search')->url; ?>' method='get'>
     
-        <input type='text' name='q' id='search' placeholder="<?=__('What are you looking for?');?>" required>
+        <input type='text' name='q' id='search' placeholder="<?=$t_str['s-placeholder'];?>" required>
         
-        <button><?=__('Search:');?></button>
+        <button><?=$t_str['search'];?></button>
         
 	</form>
 
