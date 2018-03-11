@@ -10,7 +10,9 @@ $c_opt = [
 // GET SOME FIELDS like healine or title
     'head_tit' => $page->get("headline|title"),
 // GET SOME IMPORTANT OPTIONS FROM PAGE options
-    'page_opt' => $pages->get('/options/')
+    'page_opt' => $pages->get('/options/'),
+// DEFAULT LANGUAGE PREFIX
+    'lang_pref' => 'en' 
 ];
 
 // TRANSLATED STRINGS => https://processwire.com/api/multi-language-support/code-i18n/
@@ -76,9 +78,6 @@ $t_str = [
     'matching' => __('Page (s) matching your search'),
     'no-found' => __('Unfortunately, no results were found.'),
     'search-sidebar' => __('Enter the search term in the search field (in the right sidebar)'),
-// SEARCH FORM
-    'search' => __('Search'),
-    's-placeholder' => __('What are you looking for?'),
 // COOKIE INFO
     'c_message' => __('Wee use cookies to improve your browsing experience.'),
     'c_linkmsg' => __('Learen more'),

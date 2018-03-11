@@ -5,8 +5,11 @@ $err_mess = '';
 
 // https://processwire.com/api/ref/session-c-s-r-f/
 if($session->CSRF->hasValidToken()) {
+
     if($input->post->firstname) {
+
         $err_mess .= "<h1>{$t_str['blocked']}</h1>";
+
     } 
 
 // FIND TOO MANY MESSAGE ( CHECK CONTACT PAGE CUSTOM OPTIONS )
@@ -60,6 +63,7 @@ if($p != '' && !preg_match('/^[0-9 \-\+\(\)]+$/',$phone)) {
 }
 
 if($m_name && $m_from  && $m_message) {
+
     $ph_nr = $phone ? "<h3>{$t_str['phone']}: $phone</h3>" : '';
         $html = "<html><body>
                       <h1>{$t_str['y-message']}</h1>
@@ -80,15 +84,20 @@ if($m_name && $m_from  && $m_message) {
     $m->send();
 
 // If Enable Save Messages in Contact Page 
-if(page()->check_1) {
+if(page()->check_1):
 // https://processwire.com/talk/topic/352-creating-pages-via-api/
 // https://processwire.com/api/variables/pages/
 // save to log that can be viewed via the pw backend
   $p = new Page();
+  $p->of(false);
 // Page template single item  
   $p->template = 'contact-item';
 // Page parent to save messages
   $p->parent = page()->id; // or use id => $p->parent = 1017;
+
+// Check if languages ​​exist
+  if(!count(page()->getLanguages())) {
+    
 // Save Page with e-mail, date time, user ip
   $p->title = $m_from . ' - ' . date("Y.m.d | H:i") . ' - IP - ' . $user_ip;
 // Save Message
@@ -97,11 +106,55 @@ if(page()->check_1) {
   $p->txt_1 = $user_ip;
 // Save E-Mail
   $p->txt_2 = $m_from;
-// Add status hidden ( no show pages in sitemap or sitemap.xml ), https://processwire.com/api/ref/page/add-status/ 
-  $p->addStatus(Page::statusHidden);
-// Finish => Save Page   
-  $p->save();
+
+} else {
+  // https://processwire.com/talk/topic/4383-how-to-set-language-active-via-api/
+  // https://processwire.com/api/ref/languages/get-default/
+
+// SAVE MULTILANGUAGE MESSAGE TO DEFAYLT FIELD
+  $default = $languages->get("default"); // retrive Default
+// See prefix Send message => (EN, GB)
+  $pref_lang = strtoupper(langPrefix($c_opt['home'],$c_opt['lang_pref']));
+// Save to field title with default Language. Page with prefix lang (EN, GB), e-mail, date time, user IP 
+  $p->title->setLanguageValue($default, $pref_lang . ' - ' . $m_from . ' - ' . date("Y.m.d | H:i") . ' - IP - ' . $user_ip);
+// Save to field body with default Language
+  $p->body->setLanguageValue($default, $html);
+// Save to field txt_1 with default Language
+  $p->txt_1->setLanguageValue($default, $user_ip);
+// Save to field txt_2 with default Language
+  $p->txt_2->setLanguageValue($default, $m_from);
+
+  
+// If you want to save to selected multilingual fields
+// https://processwire.com/talk/topic/4383-how-to-set-language-active-via-api/
+
+/*
+if($user->language->name == 'english'){
+// retrive English
+  $english = $languages->get("english"); 
+// https://processwire.com/talk/topic/4720-how-to-set-page-name-in-different-languages-through-the-api/  
+  $p->set("status$english", 1);
+// See prefix in title field => (EN, GB)
+  $pref_lang = strtoupper(langPrefix($c_opt['home'],$c_opt['lang_pref']));
+// Save to field title with default Language. Page with prefix lang (EN, GB), e-mail, date time, user IP 
+  $p->title->setLanguageValue($english, $pref_lang . ' - ' . $m_from . ' - ' . date("Y.m.d | H:i") . ' - IP - ' . $user_ip);
+// Save to field body with default Language
+  $p->body->setLanguageValue($english, $html);
+// Save to field txt_1 with default Language
+  $p->txt_1->setLanguageValue($english, $user_ip);
+// Save to field txt_2 with default Language
+  $p->txt_2->setLanguageValue($english, $m_from);
 }
+*/
+
+}
+
+  // Add status hidden ( no show pages in sitemap or sitemap.xml ), https://processwire.com/api/ref/page/add-status/ 
+$p->addStatus(Page::statusHidden);
+  // Finish => Save Page
+$p->save();
+
+endif;
 
 echo 
 "<h2>{$t_str['y-message']}:</h2>
@@ -113,7 +166,10 @@ echo
 } else {
     echo '<h1>' . $t_str['fill-fields'] . "<a href='{$page->url}'>{$send_again}</a>" . '</h1>';
 }
+
 // IF CSRF TOKEN NOT FOUND
 } else {
+
     echo "<h3> {$t_str['s-wrong']} <a href='./' class='text-error'> {$t_str['refresh']} </a></h3>";
+
 }

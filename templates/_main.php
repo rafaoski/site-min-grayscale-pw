@@ -1,10 +1,8 @@
 <?php namespace ProcessWire;
 // Most options are in the file /inc/_options.php
-// DEFAULT LANG PREFIX
-$def_lang = 'en';
 ?>
 <!DOCTYPE html>
-<html lang="<?=langPrefix($c_opt['home'],$def_lang);?>">
+<html lang="<?=langPrefix($c_opt['home'],$c_opt['lang_pref']);?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +20,7 @@ $def_lang = 'en';
     
     <link rel="stylesheet" href="<?php echo $c_opt['t_url']?>assets/css/master.min.css">
 
-    <?=hrefLang($c_opt['home'],$def_lang);?>
+    <?=hrefLang($c_opt['home'],$c_opt['lang_pref']);?>
 
 </head>
 
@@ -56,12 +54,12 @@ $def_lang = 'en';
 
             <?php 
             // LANGUAGES MENU
-                if(count(page()->getLanguages()) != 0 ): ?>
+                if(count(page()->getLanguages())): ?>
             
                     <!-- language switcher / navigation -->
                     <ul id='lang-menu' class='languages' role='navigation'>
             
-                        <?= menuLang($c_opt['home'],$def_lang);?>
+                        <?= menuLang($c_opt['home'],$c_opt['lang_pref']);?>
             
                     </ul>
             <?php endif; ?>
@@ -106,9 +104,9 @@ $def_lang = 'en';
 
     <form class='search-form' action='<?php echo $pages->get('template=search')->url; ?>' method='get'>
     
-        <input type='text' name='q' id='search' placeholder="<?=$t_str['s-placeholder'];?>" required>
+        <input type='text' name='q' id='search' placeholder="<?=__('What are you looking for?');?>" required>
         
-        <button><?=$t_str['search'];?></button>
+        <button><?=__('Search:');?></button>
         
 	</form>
 
