@@ -25,7 +25,7 @@ function topNav($root) {
  */
 function menuLang($home,$lang_pref) {
 
-    if(count(page()->getLanguages()) == 0 ) return '';
+    if(!page()->getLanguages()) return '';
 
         $out = '';
 
@@ -59,7 +59,7 @@ function menuLang($home,$lang_pref) {
  */
     function hrefLang($home,$lang_pref) {
 
-        if(count(page()->getLanguages()) == 0 ) return '';
+        if(!page()->getLanguages()) return '';
     
         $out = '';
     
@@ -90,7 +90,7 @@ function menuLang($home,$lang_pref) {
  */
 function langPrefix($home,$lang_pref) {
 
-    if(count(page()->getLanguages()) == 0 ) return $lang_pref;
+    if(!page()->getLanguages()) return $lang_pref;
 
     // handle output of 'hreflang' link tags for multi-language
     // this is good to do for SEO in helping search engines understand

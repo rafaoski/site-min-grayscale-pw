@@ -54,7 +54,7 @@
 
             <?php 
             // LANGUAGES MENU
-                if(count(page()->getLanguages())): ?>
+                if(page()->getLanguages()): ?>
             
                     <!-- language switcher / navigation -->
                     <ul id='lang-menu' class='languages' role='navigation'>
