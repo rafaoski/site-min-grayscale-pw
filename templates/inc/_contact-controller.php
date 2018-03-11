@@ -96,7 +96,7 @@ if(page()->check_1):
   $p->parent = page()->id; // or use id => $p->parent = 1017;
 
 // Check if languages ​​exist
-  if(!count(page()->getLanguages())) {
+  if(!page()->getLanguages()) {
     
 // Save Page with e-mail, date time, user ip
   $p->title = $m_from . ' - ' . date("Y.m.d | H:i") . ' - IP - ' . $user_ip;
