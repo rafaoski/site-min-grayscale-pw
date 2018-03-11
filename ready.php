@@ -110,5 +110,16 @@ wire()->addHookAfter('Pages::saveReady', function($event) {
 	}
 });
 
-
-
+// https://processwire.com/api/ref/page/get-languages/
+// Returns PageArray of languages, or null if language support is not active.
+if(count(page()->getLanguages())) {
+	
+// Add status 1 ( Activate Language ) => I needed this to block user IP in many languages in contact Page
+// https://processwire.com/talk/topic/4383-how-to-set-language-active-via-api/
+	wire()->addHookAfter('Pages::added', function($event) {
+		$page = $event->arguments('page');
+		if ($page->template != 'contact-item') return '';
+			foreach (languages() as $lang) $page->set("status$lang", 1);
+			$page->save();
+		});
+	}
