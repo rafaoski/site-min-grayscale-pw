@@ -104,9 +104,9 @@
 
     <form class='search-form' action='<?php echo $pages->get('template=search')->url; ?>' method='get'>
     
-        <input type='text' name='q' id='search' placeholder="<?=__('What are you looking for?');?>" required>
+        <input type='text' name='q' id='search' placeholder="<?=$t_str['search_label'];?>" required>
         
-        <button><?=__('Search:');?></button>
+        <button><?=$t_str['search'];?></button>
         
 	</form>
 
@@ -136,7 +136,7 @@
     <div class="s-prof">
 
         <?php // SHOW SOCIAL PROFILES
-               echo svgProfiles($c_opt['page_opt']->txtarea_1,$t_str['add-prof']);
+                echo svgProfiles($c_opt['page_opt']->txtarea_1,$t_str['add-prof']);
         ?>
 
     </div>
