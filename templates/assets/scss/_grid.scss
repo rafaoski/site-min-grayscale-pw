@@ -184,9 +184,11 @@ input {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
-    img {
-        background-size: cover;
-    }
+
+        img {
+            // background-size: cover;
+            display: flex;
+        }
 
       .middle {
         transition: $t-out;
@@ -219,6 +221,7 @@ input {
         }
        a img {
             opacity: .5;
+            padding: 2px;
         }
     }     
   }

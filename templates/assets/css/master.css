@@ -214,6 +214,114 @@ table
     filter: alpha(opacity=0); filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
 
+.flexbin
+{
+    display: flex; overflow: hidden; margin: -2.5px; flex-wrap: wrap;
+}
+
+.flexbin a
+{transition: all .2s ease-in-out; 
+
+    border: solid #ff9001 .1rem;
+}
+
+.flexbin a:hover
+{
+    opacity: .3;
+}
+
+.flexbin:after
+{min-width: 300px; height: 0; 
+
+    content: ''; flex-grow: 999999999;
+}
+
+.flexbin > *
+{
+    position: relative; display: block; height: 300px; margin: 2.5px; flex-grow: 1;
+}
+
+.flexbin > * > img
+{min-width: 100%; max-width: 100%; 
+    height: 300px; transition: all .2s ease-in-out; vertical-align: bottom; -o-object-fit: cover;    object-fit: cover;
+}
+
+.flexbin > * > img:hover
+{-webkit-transform: none;        transform: none; 
+
+    opacity: 1;
+}
+
+.flexbin.flexbin-margin
+{
+    margin: 2.5px;
+}
+
+@media (max-width: 980px)
+{
+    .flexbin
+    {
+        display: flex; overflow: hidden; margin: -2.5px; flex-wrap: wrap;
+    }
+    .flexbin:after
+    {min-width: 250px; height: 0; 
+
+        content: ''; flex-grow: 999999999;
+    }
+    .flexbin > *
+    {
+        position: relative; display: block; height: 250px; margin: 2.5px; flex-grow: 1;
+    }
+    .flexbin > * > img
+    {min-width: 100%; max-width: 100%; 
+        height: 250px; transition: all .2s ease-in-out; vertical-align: bottom; -o-object-fit: cover;    object-fit: cover;
+    }
+    .flexbin > * > img:hover
+    {-webkit-transform: none;        transform: none; 
+
+        opacity: 1;
+    }
+    .flexbin.flexbin-margin
+    {
+        margin: 2.5px;
+    }
+}
+
+@media (max-width: 400px)
+{
+    .flexbin
+    {
+        display: flex; overflow: hidden; margin: -2.5px; flex-wrap: wrap;
+    }
+    .flexbin:after
+    {min-width: 200px; height: 0; 
+
+        content: ''; flex-grow: 999999999;
+    }
+    .flexbin > *
+    {
+        position: relative; display: block; height: 200px; margin: 2.5px; flex-grow: 1;
+    }
+    .flexbin > * > img
+    {min-width: 100%; max-width: 100%; 
+        height: 200px; transition: all .2s ease-in-out; vertical-align: bottom; -o-object-fit: cover;    object-fit: cover;
+    }
+    .flexbin > * > img:hover
+    {-webkit-transform: none;        transform: none; 
+
+        opacity: 1;
+    }
+    .flexbin.flexbin-margin
+    {
+        margin: 2.5px;
+    }
+}
+
+.flexbin h5
+{font-family: 'Montserrat', sans-serif; 
+    font-size: 20px; position: absolute; z-index: 1; color: #f5fffa; background: #ff9001;
+}
+
 /*  WRAPPER PAGE *************** */
 .wrapper
 {
@@ -379,7 +487,7 @@ table
 
 .tiled-gallery img
 {
-    background-size: cover;
+    display: flex;
 }
 
 .tiled-gallery .middle
@@ -415,7 +523,8 @@ table
         opacity: 1;
     }
     .tiled-gallery a img
-    {
+    {padding: 2px; 
+
         opacity: .5;
     }
 }
@@ -428,114 +537,6 @@ table
 .tiled-gallery a:nth-child(8)
 {
     grid-column: 2 / 4; grid-row: 3 / 5;
-}
-
-.flexbin
-{
-    display: flex; overflow: hidden; margin: -2.5px; flex-wrap: wrap;
-}
-
-.flexbin a
-{transition: all .2s ease-in-out; 
-
-    border: solid #ff9001 .1rem;
-}
-
-.flexbin a:hover
-{
-    opacity: .3;
-}
-
-.flexbin:after
-{min-width: 300px; height: 0; 
-
-    content: ''; flex-grow: 999999999;
-}
-
-.flexbin > *
-{
-    position: relative; display: block; height: 300px; margin: 2.5px; flex-grow: 1;
-}
-
-.flexbin > * > img
-{min-width: 100%; max-width: 100%; 
-    height: 300px; transition: all .2s ease-in-out; vertical-align: bottom; -o-object-fit: cover;    object-fit: cover;
-}
-
-.flexbin > * > img:hover
-{-webkit-transform: none;        transform: none; 
-
-    opacity: 1;
-}
-
-.flexbin.flexbin-margin
-{
-    margin: 2.5px;
-}
-
-@media (max-width: 980px)
-{
-    .flexbin
-    {
-        display: flex; overflow: hidden; margin: -2.5px; flex-wrap: wrap;
-    }
-    .flexbin:after
-    {min-width: 250px; height: 0; 
-
-        content: ''; flex-grow: 999999999;
-    }
-    .flexbin > *
-    {
-        position: relative; display: block; height: 250px; margin: 2.5px; flex-grow: 1;
-    }
-    .flexbin > * > img
-    {min-width: 100%; max-width: 100%; 
-        height: 250px; transition: all .2s ease-in-out; vertical-align: bottom; -o-object-fit: cover;    object-fit: cover;
-    }
-    .flexbin > * > img:hover
-    {-webkit-transform: none;        transform: none; 
-
-        opacity: 1;
-    }
-    .flexbin.flexbin-margin
-    {
-        margin: 2.5px;
-    }
-}
-
-@media (max-width: 400px)
-{
-    .flexbin
-    {
-        display: flex; overflow: hidden; margin: -2.5px; flex-wrap: wrap;
-    }
-    .flexbin:after
-    {min-width: 200px; height: 0; 
-
-        content: ''; flex-grow: 999999999;
-    }
-    .flexbin > *
-    {
-        position: relative; display: block; height: 200px; margin: 2.5px; flex-grow: 1;
-    }
-    .flexbin > * > img
-    {min-width: 100%; max-width: 100%; 
-        height: 200px; transition: all .2s ease-in-out; vertical-align: bottom; -o-object-fit: cover;    object-fit: cover;
-    }
-    .flexbin > * > img:hover
-    {-webkit-transform: none;        transform: none; 
-
-        opacity: 1;
-    }
-    .flexbin.flexbin-margin
-    {
-        margin: 2.5px;
-    }
-}
-
-.flexbin h5
-{font-family: 'Montserrat', sans-serif; 
-    font-size: 20px; position: absolute; z-index: 1; color: #f5fffa; background: #ff9001;
 }
 
 /******* BASIC ********/
