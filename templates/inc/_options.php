@@ -83,7 +83,7 @@ $t_str = [
     'search_label' => __('What are you looking for?'),   
 // COOKIE INFO
     'c_message' => __('Wee use cookies to improve your browsing experience.'),
-    'c_linkmsg' => __('Learen more'),
+    'c_linkmsg' => __('Learn more'),
 // RSS
     'last-posts' => __('Last Posts')
 ];
